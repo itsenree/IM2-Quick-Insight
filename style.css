@@ -1,0 +1,51 @@
+body {
+    background-color: #A384C0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 100px;
+    -webkit-text-stroke: 4px rgba(0, 0, 0, 0.501);
+}
+
+.instruction{
+    color: white;
+}
+
+.cards_container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #cbbbdb;
+}
+
+.cards_layout {
+    /* background-color: black; */
+    padding-top: 20px;
+}
+
+
+/* placeholder test */
+#cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 200px;
+  }
