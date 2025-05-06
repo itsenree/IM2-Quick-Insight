@@ -26,5 +26,4 @@ document.querySelectorAll(".loadCards").forEach((button) => {
 })
 
 
-
 // await init();
