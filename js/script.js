@@ -25,5 +25,11 @@ document.querySelectorAll(".loadCards").forEach((button) => {
     })
 })
 
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+    //   alert(`You clicked on ${card.querySelector('h3').textContent}`);
+      // Add your custom logic here
+    });
+  });
 
 // await init();
