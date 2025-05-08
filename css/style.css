@@ -33,14 +33,14 @@ main {
     align-items: center; /* Aligns cards vertically in the center */
 }
 
-.pack_container {
+.flex_container {
     display: flex; /* Enables flexbox */
     justify-content: space-around; /* Distributes cards evenly with space around them */
     align-items: center; /* Aligns cards vertically in the center */
     gap: 100px; /* Adds spacing between cards */
 }
 
-  .card {
+  .card, .loadCards{
     background-color: #f9f9f9; /* Optional: Card background color */
     padding: 20px; /* Optional: Padding inside the card */
     border: 1px solid #ccc; /* Optional: Border for the card */
@@ -52,6 +52,8 @@ main {
     transition: transform 0.2s; /* Optional: Adds a hover effect */
   }
 
-  .card:hover {
+  .card:hover, .loadCards:hover {
     transform: scale(1.05); /* Optional: Slightly enlarges the card on hover */
   }
+
+  /* ----- CARDS DESIGN ----- */
