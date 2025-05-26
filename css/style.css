@@ -25,10 +25,14 @@ main {
 }
 
 .cards_container {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
-    background-color: #cbbbdb;
     vertical-align: middle;
+    /* background-color: #cbbbdb; */
+}
+
+.card {
+    background-color: #564e8b; /* Optional: Card background color */
 }
 
 .cards_layout {
@@ -45,13 +49,13 @@ main {
 }
 
   .card, .loadCards{
-    background-color: #f9f9f9; /* Optional: Card background color */
+    background-color: #9892e7;
     padding: 20px; /* Optional: Padding inside the card */
-    border: 1px solid #ccc; /* Optional: Border for the card */
+    border: 1px solid #ccc;
     border-radius: 8px; /* Optional: Rounded corners */
     text-align: center; /* Centers text inside the card */
-    height: 450px;
-    width: 250px; /* Optional: Fixed width for cards */
+    height: 420px;
+    width: 240px; /* Optional: Fixed width for cards */
     cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
     transition: transform 0.2s; /* Optional: Adds a hover effect */
   }
@@ -84,4 +88,12 @@ main {
     margin: 3px 0; /* Reduce vertical spacing */
     text-align: center;
     max-width: 70%;
+}
+
+.card img {
+  width: 100%; /* Make the image fit the container's width */
+  height: 100%; /* Make the image fit the container's height */
+  object-fit: contain; /* Maintain the aspect ratio of the image */
+  border: 2px solid black; /* Add a border directly to the image */
+  border-radius: 8px; /* Optional: Add rounded corners */
 }

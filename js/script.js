@@ -80,9 +80,13 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
       // Set the background image using the short name
       const imageUrl = `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`;
       button.style.backgroundImage = `url('${imageUrl}')`;
-      button.style.backgroundSize = 'cover'; // Ensure the image covers the button
+      button.style.backgroundSize = 'cover'; // Ensure the image fits the height of the container
+      button.style.backgroundRepeat = 'no-repeat'; // Prevent the image from repeating
       button.style.backgroundPosition = 'center'; // Center the image
-      button.style.color = 'white'; // Adjust text color for visibility
+
+      // Add a border to the button
+      button.style.border = '5px solid #e7e3b5'; // Adjust the border size and color as needed
+      button.style.borderRadius = '10px'; // Optional: Add rounded corners
 
       // Rotate the image if the meaning is "rev"
       if (!showMeaningUp) {
