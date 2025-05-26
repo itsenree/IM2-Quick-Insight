@@ -88,11 +88,16 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
       button.style.border = '5px solid #e7e3b5'; // Adjust the border size and color as needed
       button.style.borderRadius = '10px'; // Optional: Add rounded corners
 
+      // Reference the parent div of the button
+      // const cardDiv = button.parentElement;
+
       // Rotate the image if the meaning is "rev"
       if (!showMeaningUp) {
         button.style.transform = 'rotate(180deg)';
+        // cardDiv.style.transform = 'rotate(180deg)';
       } else {
-        button.style.transform = 'rotate(0deg)'; // Reset rotation for "up"
+        button.style.transform = 'rotate(0deg)';
+        // cardDiv.style.transform = 'rotate(0deg)';
       }
 
       // Store card information in data attributes for reuse

@@ -31,10 +31,6 @@ main {
     /* background-color: #cbbbdb; */
 }
 
-.card {
-    background-color: #564e8b; /* Optional: Card background color */
-}
-
 .cards_layout {
     display: flex; /* Enables flexbox */
     justify-content: space-around; /* Distributes cards evenly with space around them */
@@ -59,6 +55,11 @@ main {
     cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
     transition: transform 0.2s; /* Optional: Adds a hover effect */
   }
+
+    .card {
+    background-color: #564e8b; /* Optional: Card background color */
+    border: 1px solid #ccc;
+}
 
   .card:hover, .loadCards:hover {
     transform: scale(1.05); /* Optional: Slightly enlarges the card on hover */
