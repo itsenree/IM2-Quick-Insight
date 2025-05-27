@@ -61,9 +61,30 @@ main {
     border: 1px solid #ccc;
 }
 
-  .card:hover, .loadCards:hover {
-    transform: scale(1.05); /* Optional: Slightly enlarges the card on hover */
+  .card:hover {
+    transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
   }
+
+.rotated {
+ transform: rotate(180deg); /* Rotates the card 180 degrees */
+}
+
+.rotated:hover {
+    transform: scale(1.05) rotate(180deg) !important; /* Optional: Slightly enlarges the card on hover */
+}
+
+.card_active {
+    transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
+    background-color: #e7e3b5;
+    border: 2px solid #564e8b;
+}
+
+.rotated_card_active {
+    transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
+    background-color: #e7e3b5;
+    border: 2px solid #564e8b;
+    transform: rotate(180deg); /* Rotates the card 180 degrees */
+}
 
   .card_info_container {
     color: white;
