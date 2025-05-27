@@ -66,7 +66,8 @@ main {
   }
 
 .rotated {
- transform: rotate(180deg); /* Rotates the card 180 degrees */
+  transform: rotate(180deg); /* Rotates the card 180 degrees */
+  transition: transform 0.3s ease; /* Smooth rotation */
 }
 
 .rotated:hover {
@@ -74,16 +75,17 @@ main {
 }
 
 .card_active {
-    transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
-    background-color: #e7e3b5;
-    border: 2px solid #564e8b;
+  transform: scale(1.05) !important; /* Slightly enlarge the card */
+  background-color: #e7e3b5; /* Highlight the active card */
+  border: 2px solid #564e8b; /* Add a border to the active card */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth scaling */
 }
 
-.rotated_card_active {
-    transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
-    background-color: #e7e3b5;
-    border: 2px solid #564e8b;
-    transform: rotate(180deg); /* Rotates the card 180 degrees */
+.reversed_card_active {
+  transform: scale(1.05) rotate(180deg) !important; /* Enlarge and keep the card rotated */
+  background-color: #e7e3b5; /* Highlight the reversed active card */
+  border: 2px solid #564e8b; /* Add a border to the reversed active card */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth scaling */
 }
 
   .card_info_container {
