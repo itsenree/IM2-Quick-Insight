@@ -6,6 +6,34 @@ body {
     font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif;
 }
 
+html::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00238c; /* Background color */
+    background-image: url("../img/binding-light.png"); /* Use the local image */
+    background-size: 100px 100px; /* Set the size of the repeating pattern */
+    background-repeat: repeat; /* Repeat the image infinitely */
+    background-position: center; /* Center the pattern */
+    opacity: 0.5; /* Adjust opacity for a subtle background */
+    z-index: -1; /* Ensure it stays behind other content */
+    animation: moveUp 30s linear infinite; /* Apply the upward animation */
+}
+
+/* Keyframes for the upward movement */
+@keyframes moveUp {
+    0% {
+        background-position: center 0; /* Start at the top */
+    }
+    100% {
+        background-position: center -200px; /* Move upwards */
+    }
+}
+
 main {
     text-align: center;
 }
@@ -68,6 +96,7 @@ main {
     background-color: #564e8b; /* Optional: Card background color */
     border: 1px solid #ccc;
     text-decoration: none;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-out and scaling */
 }
 
     .card_pack {
@@ -187,4 +216,9 @@ main {
   object-fit: contain; /* Maintain the aspect ratio of the image */
   border: 2px solid black; /* Add a border directly to the image */
   border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.card.fade-out {
+  opacity: 0; /* Make the card invisible */
+  transform: scale(0.9); /* Optionally shrink the card slightly */
 }
