@@ -64,20 +64,6 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
       button.style.border = '5px solid #e7e3b5'; // Adjust the border size and color as needed
       button.style.borderRadius = '10px'; // Optional: Add rounded corners
 
-      // Rotate the cardDiv if the meaning is "rev"
-      const cardDiv = button.closest('.card'); // Find the nearest parent with the class 'card'
-
-      // Remove active classes from all cards to reset their layout
-      document.querySelectorAll('.card').forEach(card => {
-        card.classList.remove('rotated_card_active', 'card_active'); // Remove both active classes
-      });
-
-      // Add the appropriate class to the clicked card
-      if (!showMeaningUp) {
-        cardDiv.classList.add('rotated_card_active'); // Add the 'rotated_card_active' class for reversed cards
-      } else {
-        cardDiv.classList.add('card_active'); // Add the 'card_active' class for upright cards
-      }
 
       // Store card information in data attributes for reuse
       button.setAttribute('data-card-name', showMeaningUp ? card.name : `${card.name} (Reversed)`);
@@ -101,7 +87,7 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
       if (cardMeaningContainer) {
         cardMeaningContainer.textContent = meaning; // Use the 'meaning' variable
       }
-
+      
     } catch (error) {
       console.error('Error fetching card:', error);
     }
@@ -172,17 +158,8 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
 
       // Rotate the cardDiv if the meaning is "rev"
       const cardDiv = button.closest('.card'); // Find the nearest parent with the class 'card'
-
-      // Remove active classes from all cards to reset their layout
-      document.querySelectorAll('.card').forEach(card => {
-        card.classList.remove('rotated_card_active', 'card_active'); // Remove both active classes
-      });
-
-      // Add the appropriate class to the clicked card
       if (!showMeaningUp) {
-        cardDiv.classList.add('rotated_card_active'); // Add the 'rotated_card_active' class for reversed cards
-      } else {
-        cardDiv.classList.add('card_active'); // Add the 'card_active' class for upright cards
+          cardDiv.classList.add('rotated'); // Add the 'rotated' class after rotation
       }
 
       // Store card information in data attributes for reuse
