@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+
 body {
     background-color: #A384C0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -12,16 +15,21 @@ main {
     text-align: center;
     text-decoration: none;
     color: white;
-    font-size: 90px;
-    -webkit-text-stroke: 4px rgba(0, 0, 0, 0.501);
+    font-size: 60px;
+    -webkit-text-stroke: 3px #564e8b; /* Reduce text stroke width */
+    margin: 10px 0; /* Reduce vertical margins */
+    line-height: 1.2; /* Adjust line height for better spacing */
 }
 
-.instruction{
+.instruction {
     color: white;
-    font-size: 25px; /* Reduce font size */
+    font-size: 18px; /* Reduce font size */
     width: fit-content; /* Shrink the container to fit the text */
-    margin: 5px auto; /* Center the container */
-    margin-bottom: 20px;
+    margin: 10px auto; /* Center the container and reduce vertical margins */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 1.2; /* Adjust line height for better spacing */
+    text-align: center; /* Ensure the text is centered */
 }
 
 .cards_container {
@@ -59,11 +67,56 @@ main {
     .card {
     background-color: #564e8b; /* Optional: Card background color */
     border: 1px solid #ccc;
+    text-decoration: none;
 }
+
+    .card_pack {
+        text-decoration: none;
+        color: #564e8b;
+        background-color: #564e8b; /* Optional: Card background color */
+        border: 20px solid #ccc;
+        background-color: #9892e7;
+        padding: 20px; /* Optional: Padding inside the card */
+        border-radius: 8px; /* Optional: Rounded corners */
+        text-align: center; /* Centers text inside the card */
+        height: 420px;
+        width: 240px; /* Optional: Fixed width for cards */
+        cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
+        transition: transform 0.2s; /* Optional: Adds a hover effect */
+    }
+
+    @keyframes flyIn {
+  from {
+    transform: translateY(100px); /* Start below the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    transform: translateY(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.card_pack {
+  animation: flyIn 0.8s ease-out; /* Apply the animation */
+  opacity: 0; /* Ensure the card is initially invisible */
+  animation-fill-mode: forwards; /* Keep the final state after the animation */
+}
+
+    .card_pack:hover {
+        transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
+      }
 
   .card:hover {
     transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
   }
+
+  .pack_number {
+    color: white;
+    text-decoration: none; /* Removes the underline */
+    font-size: 80px; /* Sets the font size to half the card height */
+    display: block; /* Ensures proper layout inside the card */
+    text-align: center; /* Centers the text inside the card */
+}
 
 .rotated {
   transform: rotate(180deg); /* Rotates the card 180 degrees */
@@ -98,23 +151,37 @@ main {
 .card_name {
     font-weight: bold;
     font-size: 30px;
-    margin: 20px; /* Reduce vertical spacing */
-    margin-bottom: 0px;
+    margin-top: 25px; /* Remove vertical spacing */
+    margin-bottom: 10px;
+    color: white; /* Text color */
+    text-shadow: none; /* Ensure no additional shadow is applied */
+    line-height: 30px; /* Match line-height to font-size to avoid extra spacing */
+    display: inline-block; /* Prevent block-level behavior */
+    text-align: center; /* Center the text */
+    text-decoration: underline;
 }
 
 .card_details {
-    font-size: 16px;
-    margin: 3px 0; /* Reduce vertical spacing */
+    font-size: 20px; /* Keep the font size readable */
+    margin: 0; /* Remove vertical spacing */
+    padding: 0; /* Ensure no padding is applied */
+    line-height: 1.2; /* Adjust line height for better spacing */
+    display: inline-block; /* Prevent block-level behavior */
+    text-align: center; /* Center the text */
 }
 
 .card_meaning {
-    font-size: 14px;
-    margin: 3px 0; /* Reduce vertical spacing */
-    text-align: center;
-    max-width: 70%;
+    font-size: 15px; /* Reduce font size for more compact text */
+    margin: 5px 0; /* Keep minimal vertical spacing */
+    padding: 0; /* Ensure no padding is applied */
+    line-height: 1.1; /* Reduce line height for compact spacing */
+    text-align: center; /* Center the text */
+    max-width: 75%; /* Keep the text within a reasonable width */
+    word-wrap: break-word; /* Ensure long words break to fit within the container */
 }
 
 .card img {
+  font-family: 'baloo 2', Arial, Helvetica, sans-serif;
   width: 100%; /* Make the image fit the container's width */
   height: 100%; /* Make the image fit the container's height */
   object-fit: contain; /* Maintain the aspect ratio of the image */

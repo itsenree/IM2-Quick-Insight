@@ -11,7 +11,7 @@ document.querySelectorAll('.card').forEach(card => {
 // await init();
 
 
-document.querySelectorAll('.loadCards').forEach((button, index) => {
+document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
   button.addEventListener('click', async (event) => {
     event.preventDefault(); // Prevent default behavior
 
@@ -105,6 +105,42 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
       const cardMeaningContainer = document.querySelector('.card_meaning');
       if (cardMeaningContainer) {
         cardMeaningContainer.textContent = meaning; // Use the 'meaning' variable
+      }
+
+      // Check if all cards are revealed
+      const allRevealed = Array.from(buttons).every(btn => btn.classList.contains('active'));
+      if (allRevealed) {
+        const instructionContainer = document.querySelector('.instruction');
+        if (instructionContainer) {
+          // Clear the instruction text
+          instructionContainer.textContent = ' ';
+
+          // Adjust the margin of the instruction container
+          instructionContainer.style.margin = '0px auto 0px auto'; // Example: Adjust the margin as needed
+
+          // Add the "Pull Again?" button
+          const pullAgainButton = document.createElement('button');
+          pullAgainButton.id = 'pull-again';
+          pullAgainButton.textContent = 'Pull Again?';
+          pullAgainButton.style.backgroundColor = '#560069';
+          pullAgainButton.style.color = 'white';
+          pullAgainButton.style.padding = '10px 20px';
+          pullAgainButton.style.border = 'none';
+          pullAgainButton.style.borderRadius = '5px';
+          pullAgainButton.style.cursor = 'pointer';
+          pullAgainButton.style.fontSize = '18px'; // Match the font size of the instruction text
+          pullAgainButton.style.textAlign = 'center'; // Center the text
+          pullAgainButton.style.display = 'inline-block'; // Ensure it behaves like the instruction text
+
+          // Append the button to the instruction container
+          instructionContainer.appendChild(pullAgainButton);
+
+          // Add event listener to the "Pull Again?" button
+          pullAgainButton.addEventListener('click', () => {
+            // Redirect to index.html
+            window.location.href = '../index.html';
+          });
+        }
       }
 
     } catch (error) {
