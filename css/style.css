@@ -74,10 +74,61 @@ main {
 }
 
 .flex_container {
-    display: flex; /* Enables flexbox */
-    justify-content: space-around; /* Distributes cards evenly with space around them */
-    align-items: center; /* Aligns cards vertically in the center */
-    gap: 100px; /* Adds spacing between cards */
+  display: flex; /* Enables flexbox */
+  justify-content: space-around; /* Distributes cards evenly with space around them */
+  align-items: center; /* Aligns cards vertically in the center */
+  gap: 100px; /* Adds spacing between cards */
+  flex-wrap: wrap; /* Allows cards to wrap to the next row */
+}
+
+@media (max-width: 768px) {
+  #pull-again {
+    position: fixed; /* Fix the button to the bottom of the screen */
+    bottom: 40px; /* Add spacing from the bottom */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    width: 80%; /* Make the button take up most of the screen width */
+    max-width: 300px; /* Limit the button's width */
+    padding: 10px 20px; /* Add padding for better touch targets */
+    font-size: 18px; /* Adjust font size for readability */
+    text-align: center; /* Center the text inside the button */
+    background-color: #560069; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    z-index: 1000; /* Ensure the button stays above other elements */
+    font-size: 30px;
+  }
+
+  .cards_container {
+    padding-bottom: 80px; /* Add padding to prevent overlap with the button */
+  }
+
+  .flex_container {
+    flex-direction: column; /* Stack cards vertically */
+    justify-content: center; /* Center cards vertically */
+    align-items: center; /* Center cards horizontally */
+    gap: 20px; /* Reduce spacing between cards */
+  }
+
+  .cards_layout {
+    display: flex; /* Ensure flexbox is applied */
+    flex-direction: column; /* Stack cards vertically */
+    justify-content: center; /* Center cards vertically */
+    align-items: center; /* Center cards horizontally */
+    width: 100%; /* Ensure the layout takes full width */
+  }
+
+  .card {
+    width: 80%; /* Make cards take up more horizontal space */
+    margin: 0 auto; /* Center the cards horizontally */
+  }
+
+  .card_meaning {
+    font-size: 20px; /* Increase the font size for smaller screens */
+    line-height: 1.5; /* Optional: Adjust line height for better readability */
+  }
 }
 
   .card, .loadCards{
