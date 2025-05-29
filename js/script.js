@@ -361,7 +361,7 @@ function handleFloatingTextBox() {
 
     // Show the card_info_container in desktop view
     if (cardInfoContainer) {
-      cardInfoContainer.style.display = 'block';
+      // cardInfoContainer.style.display = 'block';
     }
   }
 }
