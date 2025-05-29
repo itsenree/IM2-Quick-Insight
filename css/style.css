@@ -92,7 +92,7 @@ main {
     padding: 10px 20px; /* Add padding for better touch targets */
     font-size: 18px; /* Adjust font size for readability */
     text-align: center; /* Center the text inside the button */
-    background-color: #560069; /* Button background color */
+    background-color: #564e8b; /* Button background color */
     color: white; /* Button text color */
     border: none; /* Remove border */
     border-radius: 5px; /* Add rounded corners */
@@ -128,6 +128,115 @@ main {
   .card_meaning {
     font-size: 20px; /* Increase the font size for smaller screens */
     line-height: 1.5; /* Optional: Adjust line height for better readability */
+  }
+
+  .card_info_container {
+    margin-top: 5px;
+    padding: 15px;
+  }
+
+  .card_name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .card_details {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .card_meaning {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .info_box {
+    margin: 10px 0; /* Add spacing above and below the box */
+    padding: 15px; /* Add padding inside the box */
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center the text inside the box */
+    font-size: 16px; /* Adjust font size for readability */
+    color: #333; /* Text color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+
+  .info_name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .info_details {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .info_meaning {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .mobile_textbox {
+    margin: 10px 0; /* Add spacing above and below the textbox */
+    padding: 15px; /* Add padding inside the textbox */
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center the text inside the textbox */
+    font-size: 16px; /* Adjust font size for readability */
+    color: #333; /* Text color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+
+  .floating_textbox {
+    position: fixed; /* Fix the textbox to the viewport */
+    bottom: 100px; /* Position it above the bottom of the viewport */
+    left: 10px; /* Position it 10px from the left */
+    right: 10px; /* Position it 10px from the right */
+    background-color: #564e8bf1; /* Match the card background color */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Add padding inside the textbox */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    font-size: 16px; /* Adjust font size for readability */
+    color: white; /* Match the text color of the card info */
+    z-index: 1000; /* Ensure it appears above other elements */
+    display: none; /* Initially hide the textbox */
+    text-align: center; /* Center the text inside the box */
+    font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif; /* Match the font */
+  }
+
+  .floating_textbox .card_name {
+    font-weight: bold;
+    font-size: 30px; /* Match the font size of the card name */
+    margin-top: 25px; /* Add spacing above the name */
+    margin-bottom: 10px; /* Add spacing below the name */
+    text-decoration: underline; /* Add underline to match the card info */
+  }
+
+  .floating_textbox .card_details {
+    font-size: 20px; /* Match the font size of the card details */
+    margin: 0; /* Remove vertical spacing */
+    padding: 0; /* Ensure no padding is applied */
+    line-height: 1.2; /* Adjust line height for better spacing */
+  }
+
+  .floating_textbox .card_meaning {
+    font-size: 15px; /* Match the font size of the card meaning */
+    margin: 5px 0; /* Add minimal vertical spacing */
+    padding: 0; /* Ensure no padding is applied */
+    line-height: 1.1; /* Adjust line height for compact spacing */
+    max-width: 75%; /* Keep the text within a reasonable width */
+    word-wrap: break-word; /* Ensure long words break to fit within the container */
+    margin-left: auto; /* Center the text horizontally */
+    margin-right: auto;
+  }
+
+  .card_info_container {
+    display: none; /* Hide the card info container in mobile mode */
   }
 }
 

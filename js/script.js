@@ -122,10 +122,10 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
           const pullAgainButton = document.createElement('button');
           pullAgainButton.id = 'pull-again';
           pullAgainButton.textContent = 'Pull Again?';
-          pullAgainButton.style.backgroundColor = '#560069';
+          pullAgainButton.style.backgroundColor = '#564e8b';
           pullAgainButton.style.color = 'white';
           pullAgainButton.style.padding = '10px 20px';
-          pullAgainButton.style.border = 'none';
+          pullAgainButton.style.border = '1px solid #e7e3b5'; // Adjust the border size and color as needed
           pullAgainButton.style.borderRadius = '5px';
           pullAgainButton.style.cursor = 'pointer';
           pullAgainButton.style.fontSize = '18px'; // Match the font size of the instruction text
@@ -245,3 +245,143 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
     }
   });
 });
+
+// Function to handle the floating textbox for mobile screens
+function handleFloatingTextBox() {
+  const existingTextBox = document.getElementById('floating_textbox');
+const cardInfoContainer = document.querySelector('.card_info_container');
+
+  // Check if the screen width is small (e.g., max-width: 768px)
+  if (window.innerWidth <= 768) {
+    // Create the floating textbox if it doesn't already exist
+    if (!existingTextBox) {
+      const floatingTextBox = document.createElement('div');
+      floatingTextBox.id = 'floating_textbox';
+      floatingTextBox.classList.add('floating_textbox', 'card_info_container'); // Add the card_info_container class
+      floatingTextBox.style.display = 'none'; // Initially hide the textbox
+      document.body.appendChild(floatingTextBox);
+    }
+
+    // Hide the card_info_container in mobile view
+    if (cardInfoContainer) {
+      cardInfoContainer.style.display = 'none';
+    }
+  } else {
+    // Remove the floating textbox if the screen is larger than 768px
+    if (existingTextBox) {
+      existingTextBox.remove();
+    }
+
+    // Show the card_info_container in desktop view
+    if (cardInfoContainer) {
+      cardInfoContainer.style.display = 'block';
+    }
+  }
+}
+
+// Function to update the floating textbox with card data
+function updateFloatingTextBox(button) {
+  const floatingTextBox = document.getElementById('floating_textbox');
+const cardInfoContainer = document.querySelector('.card_info_container');
+
+  if (!floatingTextBox) return;
+
+  // Fetch the card's data attributes
+  const cardName = button.getAttribute('data-card-name') || 'No Name Available';
+  const cardDetails = button.getAttribute('data-card-details') || 'No Details Available';
+  const cardMeaning = button.getAttribute('data-card-meaning') || 'No Meaning Available';
+
+  // Populate the textbox with the card's data
+  floatingTextBox.innerHTML = `
+    <div>
+      <h1 class="card_name">${cardName}</h1>
+      <h3 class="card_details">${cardDetails}</h3>
+      <p class="card_meaning">${cardMeaning}</p>
+    </div>
+  `;
+
+  // Show the textbox
+  floatingTextBox.style.display = 'block';
+
+  // Update the card_info_container content (for desktop view)
+  if (cardInfoContainer) {
+    cardInfoContainer.innerHTML = `
+      <h1 class="card_name">${cardName}</h1>
+      <h3 class="card_details">${cardDetails}</h3>
+      <p class="card_meaning">${cardMeaning}</p>
+    `;
+  }
+}
+
+// Event listener for card clicks
+document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
+  button.addEventListener('click', async (event) => {
+    event.preventDefault(); // Prevent default behavior
+
+    // Reference the parent div of the button
+    const cardDiv = button.closest('.card'); // Find the nearest parent with the class 'card'
+
+    // Remove active classes from all cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.remove('card_active', 'reversed_card_active'); // Remove both active classes
+    });
+
+    // Check if the card has already been clicked
+    if (button.classList.contains('active')) {
+      // Update the floating textbox with the already displayed card's data
+      updateFloatingTextBox(button);
+
+      // Add the appropriate class to the clicked card
+      if (cardDiv.classList.contains('rotated')) {
+        cardDiv.classList.add('reversed_card_active'); // Add the reversed active class
+      } else {
+        cardDiv.classList.add('card_active'); // Add the upright active class
+      }
+
+      return; // Exit the function to prevent fetching a new card
+    }
+
+    // Mark the card as active
+    button.classList.add('active');
+
+    try {
+      // Fetch a random card from the API
+      const response = await fetch('https://tarotapi.dev/api/v1/cards/random?n=1');
+      const data = await response.json();
+      const card = data.cards[0]; // Get the first card from the response
+
+      // Randomly decide whether to show meaning_up or meaning_rev
+      const showMeaningUp = Math.random() < 0.5; // 50% chance for each
+      const meaning = showMeaningUp ? card.meaning_up : card.meaning_rev;
+
+      // Set the background image using the short name
+      const imageUrl = `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`;
+      button.style.backgroundImage = `url('${imageUrl}')`;
+      button.style.backgroundSize = 'cover'; // Ensure the image fits the height of the container
+      button.style.backgroundRepeat = 'no-repeat'; // Prevent the image from repeating
+      button.style.backgroundPosition = 'center'; // Center the image
+
+      // Add the appropriate class to the clicked card
+      if (!showMeaningUp) {
+        cardDiv.classList.add('reversed_card_active'); // Add the reversed active class for reversed cards
+      } else {
+    cardDiv.classList.add('card_active'); // Add the upright active class for upright cards
+      }
+
+      // Store card information in data attributes for reuse
+      button.setAttribute('data-card-name', showMeaningUp ? card.name : `${card.name} (Reversed)`);
+      button.setAttribute('data-card-details', `${card.type} | ${card.suit} | weight ${card.value_int}`);
+      button.setAttribute('data-card-meaning', meaning);
+
+      // Update the floating textbox with the fetched card's data
+      updateFloatingTextBox(button);
+
+    } catch (error) {
+      console.error('Error fetching card:', error);
+    }
+  });
+});
+
+// Add event listener for DOMContentLoaded
+window.addEventListener('DOMContentLoaded', handleFloatingTextBox);
+window.addEventListener('resize', handleFloatingTextBox);
