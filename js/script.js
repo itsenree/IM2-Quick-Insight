@@ -141,11 +141,6 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
         }
       }
 
-      // Ensure the floating textbox is visible
-      if (floatingTextBox) {
-        floatingTextBox.style.display = 'block';
-      }
-
       // Check if all cards are revealed
       const allRevealed = Array.from(buttons).every(btn => btn.classList.contains('active'));
       if (allRevealed) {
