@@ -236,7 +236,7 @@ main {
   }
 
   .card_info_container {
-    display: none; /* Hide the card info container in mobile mode */
+    display: none !important; /* Hide the card info container in mobile mode */
   }
 }
 
