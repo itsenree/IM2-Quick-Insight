@@ -374,9 +374,9 @@ function updateFloatingTextBox(button) {
   if (!floatingTextBox) return;
 
   // Fetch the card's data attributes
-  const cardName = button.getAttribute('data-card-name') || 'No Name Available';
-  const cardDetails = button.getAttribute('data-card-details') || 'No Details Available';
-  const cardMeaning = button.getAttribute('data-card-meaning') || 'No Meaning Available';
+  const cardName = button.getAttribute('data-card-name') || '';
+  const cardDetails = button.getAttribute('data-card-details') || '';
+  const cardMeaning = button.getAttribute('data-card-meaning') || '';
 
   // Populate the floating textbox with the card's data
   floatingTextBox.innerHTML = `
