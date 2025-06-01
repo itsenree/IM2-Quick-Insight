@@ -1,6 +1,9 @@
+/* --- Fonts import --- */
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 
+
+/* --- General styles --- */
 body {
     background-color: #A384C0;
     font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif;
@@ -22,16 +25,6 @@ html::after {
     opacity: 0.5; /* Adjust opacity for a subtle background */
     z-index: -1; /* Ensure it stays behind other content */
     animation: moveUp 30s linear infinite; /* Apply the upward animation */
-}
-
-/* Keyframes for the upward movement */
-@keyframes moveUp {
-    0% {
-        background-position: center 0; /* Start at the top */
-    }
-    100% {
-        background-position: center -200px; /* Move upwards */
-    }
 }
 
 main {
@@ -60,6 +53,8 @@ main {
     text-align: center; /* Ensure the text is centered */
 }
 
+
+/* --- Card and pack layout --- */
 .cards_container {
     width: 80%;
     margin: 0 auto;
@@ -81,167 +76,8 @@ main {
   flex-wrap: wrap; /* Allows cards to wrap to the next row */
 }
 
-@media (max-width: 768px) {
-  #pull-again {
-    position: fixed; /* Fix the button to the bottom of the screen */
-    bottom: 40px; /* Add spacing from the bottom */
-    left: 50%; /* Center the button horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    width: 80%; /* Make the button take up most of the screen width */
-    max-width: 300px; /* Limit the button's width */
-    padding: 10px 20px; /* Add padding for better touch targets */
-    font-size: 18px; /* Adjust font size for readability */
-    text-align: center; /* Center the text inside the button */
-    background-color: #564e8b; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Add rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    z-index: 1000; /* Ensure the button stays above other elements */
-    font-size: 30px;
-  }
-
-  .cards_container {
-    padding-bottom: 80px; /* Add padding to prevent overlap with the button */
-  }
-
-  .flex_container {
-    flex-direction: column; /* Stack cards vertically */
-    justify-content: center; /* Center cards vertically */
-    align-items: center; /* Center cards horizontally */
-    gap: 20px; /* Reduce spacing between cards */
-  }
-
-  .cards_layout {
-    display: flex; /* Ensure flexbox is applied */
-    flex-direction: column; /* Stack cards vertically */
-    justify-content: center; /* Center cards vertically */
-    align-items: center; /* Center cards horizontally */
-    width: 100%; /* Ensure the layout takes full width */
-  }
-
-  .card {
-    width: 80%; /* Make cards take up more horizontal space */
-    margin: 0 auto; /* Center the cards horizontally */
-  }
-
-  .card_meaning {
-    font-size: 20px; /* Increase the font size for smaller screens */
-    line-height: 1.5; /* Optional: Adjust line height for better readability */
-  }
-
-  .card_info_container {
-    margin-top: 5px;
-    padding: 15px;
-    display: block;
-  }
-
-  .card_name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .card_details {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-
-  .card_meaning {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .info_box {
-    margin: 10px 0; /* Add spacing above and below the box */
-    padding: 15px; /* Add padding inside the box */
-    background-color: #f9f9f9; /* Light background color */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 8px; /* Rounded corners */
-    text-align: center; /* Center the text inside the box */
-    font-size: 16px; /* Adjust font size for readability */
-    color: #333; /* Text color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  }
-
-  .info_name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .info_details {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-
-  .info_meaning {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .mobile_textbox {
-    margin: 10px 0; /* Add spacing above and below the textbox */
-    padding: 15px; /* Add padding inside the textbox */
-    background-color: #f9f9f9; /* Light background color */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 8px; /* Rounded corners */
-    text-align: center; /* Center the text inside the textbox */
-    font-size: 16px; /* Adjust font size for readability */
-    color: #333; /* Text color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  }
-
-  .floating_textbox {
-    position: fixed; /* Fix the textbox to the viewport */
-    bottom: 100px; /* Position it above the bottom of the viewport */
-    left: 10px; /* Position it 10px from the left */
-    right: 10px; /* Position it 10px from the right */
-    background-color: #564e8bf1; /* Match the card background color */
-    border: 2px solid #ccc; /* Add a border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 15px; /* Add padding inside the textbox */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    font-size: 16px; /* Adjust font size for readability */
-    color: white; /* Match the text color of the card info */
-    z-index: 1000; /* Ensure it appears above other elements */
-    display: none; /* Initially hide the textbox */
-    text-align: center; /* Center the text inside the box */
-    font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif; /* Match the font */
-  }
-
-  .floating_textbox .card_name {
-    font-weight: bold;
-    font-size: 30px; /* Match the font size of the card name */
-    margin-top: 25px; /* Add spacing above the name */
-    margin-bottom: 10px; /* Add spacing below the name */
-    text-decoration: underline; /* Add underline to match the card info */
-  }
-
-  .floating_textbox .card_details {
-    font-size: 20px; /* Match the font size of the card details */
-    margin: 0; /* Remove vertical spacing */
-    padding: 0; /* Ensure no padding is applied */
-    line-height: 1.2; /* Adjust line height for better spacing */
-  }
-
-  .floating_textbox .card_meaning {
-    font-size: 15px; /* Match the font size of the card meaning */
-    margin: 5px 0; /* Add minimal vertical spacing */
-    padding: 0; /* Ensure no padding is applied */
-    line-height: 1.1; /* Adjust line height for compact spacing */
-    max-width: 75%; /* Keep the text within a reasonable width */
-    word-wrap: break-word; /* Ensure long words break to fit within the container */
-    margin-left: auto; /* Center the text horizontally */
-    margin-right: auto;
-  }
-
-  .card_info_container {
-    display: none !important; /* Hide the card info container in mobile mode */
-  }
-}
-
-  .card, .loadCards{
+/* --- Card styles --- */
+.card, .loadCards{
     background-color: #9892e7;
     padding: 20px; /* Optional: Padding inside the card */
     border: 1px solid #ccc;
@@ -251,39 +87,49 @@ main {
     width: 240px; /* Optional: Fixed width for cards */
     cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
     transition: transform 0.2s; /* Optional: Adds a hover effect */
-  }
+}
 
-    .card {
+.card {
     background-color: #564e8b; /* Optional: Card background color */
     border: 1px solid #ccc;
     text-decoration: none;
     transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-out and scaling */
 }
 
-    .card_pack {
-        text-decoration: none;
-        color: #564e8b;
-        background-color: #564e8b; /* Optional: Card background color */
-        border: 20px solid #ccc;
-        background-color: #9892e7;
-        padding: 20px; /* Optional: Padding inside the card */
-        border-radius: 8px; /* Optional: Rounded corners */
-        text-align: center; /* Centers text inside the card */
-        height: 420px;
-        width: 240px; /* Optional: Fixed width for cards */
-        cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
-        transition: transform 0.2s; /* Optional: Adds a hover effect */
-    }
+/* --- Cardpack styles --- */
+.card_pack {
+    text-decoration: none;
+    color: #564e8b;
+    background-color: #564e8b; /* Optional: Card background color */
+    border: 20px solid #ccc;
+    background-color: #9892e7;
+    padding: 20px; /* Optional: Padding inside the card */
+    border-radius: 8px; /* Optional: Rounded corners */
+    text-align: center; /* Centers text inside the card */
+    height: 420px;
+    width: 240px; /* Optional: Fixed width for cards */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the card */
+    transition: transform 0.2s; /* Optional: Adds a hover effect */
+}
 
-    @keyframes flyIn {
-  from {
-    transform: translateY(100px); /* Start below the viewport */
-    opacity: 0; /* Start invisible */
-  }
-  to {
-    transform: translateY(0); /* End at the original position */
-    opacity: 1; /* Fully visible */
-  }
+.pack_number {
+    color: white;
+    text-decoration: none; /* Removes the underline */
+    font-size: 80px; /* Sets the font size to half the card height */
+    display: block; /* Ensures proper layout inside the card */
+    text-align: center; /* Centers the text inside the card */
+}
+
+/* --- Cardpack fly-in animation --- */
+@keyframes flyIn {
+    from {
+        transform: translateY(100px); /* Start below the viewport */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateY(0); /* End at the original position */
+        opacity: 1; /* Fully visible */
+    }
 }
 
 .card_pack {
@@ -292,20 +138,14 @@ main {
   animation-fill-mode: forwards; /* Keep the final state after the animation */
 }
 
-    .card_pack:hover {
-        transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
-      }
 
-  .card:hover {
+/* --- Hover and rotation --- */
+.card_pack:hover {
     transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
-  }
+}
 
-  .pack_number {
-    color: white;
-    text-decoration: none; /* Removes the underline */
-    font-size: 80px; /* Sets the font size to half the card height */
-    display: block; /* Ensures proper layout inside the card */
-    text-align: center; /* Centers the text inside the card */
+.card:hover {
+    transform: scale(1.05) !important; /* Optional: Slightly enlarges the card on hover */
 }
 
 .rotated {
@@ -317,6 +157,7 @@ main {
     transform: scale(1.05) rotate(180deg) !important; /* Optional: Slightly enlarges the card on hover */
 }
 
+/* --- Active cards --- */
 .card_active {
   transform: scale(1.05) !important; /* Slightly enlarge the card */
   background-color: #e7e3b5; /* Highlight the active card */
@@ -331,7 +172,8 @@ main {
   transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth scaling */
 }
 
-  .card_info_container {
+/* --- Card information --- */
+.card_info_container {
     color: white;
     display: flex;
     flex-direction: column; /* Stacks elements vertically */
@@ -379,7 +221,158 @@ main {
   border-radius: 8px; /* Optional: Add rounded corners */
 }
 
-.card.fade-out {
-  opacity: 0; /* Make the card invisible */
-  transform: scale(0.9); /* Optionally shrink the card slightly */
-}
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    #pull-again {
+      position: fixed; /* Fix the button to the bottom of the screen */
+      bottom: 40px; /* Add spacing from the bottom */
+      left: 50%; /* Center the button horizontally */
+      transform: translateX(-50%); /* Adjust for centering */
+      width: 80%; /* Make the button take up most of the screen width */
+      max-width: 300px; /* Limit the button's width */
+      padding: 10px 20px; /* Add padding for better touch targets */
+      font-size: 18px; /* Adjust font size for readability */
+      text-align: center; /* Center the text inside the button */
+      background-color: #564e8b; /* Button background color */
+      color: white; /* Button text color */
+      border: none; /* Remove border */
+      border-radius: 5px; /* Add rounded corners */
+      cursor: pointer; /* Change cursor to pointer on hover */
+      z-index: 1000; /* Ensure the button stays above other elements */
+      font-size: 30px;
+    }
+  
+    .cards_container {
+      padding-bottom: 80px; /* Add padding to prevent overlap with the button */
+    }
+  
+    .flex_container {
+      flex-direction: column; /* Stack cards vertically */
+      justify-content: center; /* Center cards vertically */
+      align-items: center; /* Center cards horizontally */
+      gap: 20px; /* Reduce spacing between cards */
+    }
+  
+    .cards_layout {
+      display: flex; /* Ensure flexbox is applied */
+      flex-direction: column; /* Stack cards vertically */
+      justify-content: center; /* Center cards vertically */
+      align-items: center; /* Center cards horizontally */
+      width: 100%; /* Ensure the layout takes full width */
+    }
+  
+    .card_meaning {
+      font-size: 20px; /* Increase the font size for smaller screens */
+      line-height: 1.5; /* Optional: Adjust line height for better readability */
+    }
+  
+    .card_info_container {
+      margin-top: 5px;
+      padding: 15px;
+      display: block;
+    }
+  
+    .card_name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .card_details {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+  
+    .card_meaning {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    .info_box {
+      margin: 10px 0; /* Add spacing above and below the box */
+      padding: 15px; /* Add padding inside the box */
+      background-color: #f9f9f9; /* Light background color */
+      border: 1px solid #ccc; /* Add a border */
+      border-radius: 8px; /* Rounded corners */
+      text-align: center; /* Center the text inside the box */
+      font-size: 16px; /* Adjust font size for readability */
+      color: #333; /* Text color */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    }
+  
+    .info_name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .info_details {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+  
+    .info_meaning {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    .mobile_textbox {
+      margin: 10px 0; /* Add spacing above and below the textbox */
+      padding: 15px; /* Add padding inside the textbox */
+      background-color: #f9f9f9; /* Light background color */
+      border: 1px solid #ccc; /* Add a border */
+      border-radius: 8px; /* Rounded corners */
+      text-align: center; /* Center the text inside the textbox */
+      font-size: 16px; /* Adjust font size for readability */
+      color: #333; /* Text color */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    }
+  
+    .floating_textbox {
+      position: fixed; /* Fix the textbox to the viewport */
+      bottom: 100px; /* Position it above the bottom of the viewport */
+      left: 10px; /* Position it 10px from the left */
+      right: 10px; /* Position it 10px from the right */
+      background-color: #564e8bf1; /* Match the card background color */
+      border: 2px solid #ccc; /* Add a border */
+      border-radius: 8px; /* Rounded corners */
+      padding: 15px; /* Add padding inside the textbox */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+      font-size: 16px; /* Adjust font size for readability */
+      color: white; /* Match the text color of the card info */
+      z-index: 1000; /* Ensure it appears above other elements */
+      display: none; /* Initially hide the textbox */
+      text-align: center; /* Center the text inside the box */
+      font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif; /* Match the font */
+    }
+  
+    .floating_textbox .card_name {
+      font-weight: bold;
+      font-size: 30px; /* Match the font size of the card name */
+      margin-top: 25px; /* Add spacing above the name */
+      margin-bottom: 10px; /* Add spacing below the name */
+      text-decoration: underline; /* Add underline to match the card info */
+    }
+  
+    .floating_textbox .card_details {
+      font-size: 20px; /* Match the font size of the card details */
+      margin: 0; /* Remove vertical spacing */
+      padding: 0; /* Ensure no padding is applied */
+      line-height: 1.2; /* Adjust line height for better spacing */
+    }
+  
+    .floating_textbox .card_meaning {
+      font-size: 15px; /* Match the font size of the card meaning */
+      margin: 5px 0; /* Add minimal vertical spacing */
+      padding: 0; /* Ensure no padding is applied */
+      line-height: 1.1; /* Adjust line height for compact spacing */
+      max-width: 75%; /* Keep the text within a reasonable width */
+      word-wrap: break-word; /* Ensure long words break to fit within the container */
+      margin-left: auto; /* Center the text horizontally */
+      margin-right: auto;
+    }
+  
+    .card_info_container {
+      display: none !important; /* Hide the card info container in mobile mode */
+    }
+  }

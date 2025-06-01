@@ -1,16 +1,7 @@
 async function init() {
 }
 
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-    //   alert(`You clicked on ${card.querySelector('h3').textContent}`);
-      // Add your custom logic here
-    });
-  });
-
-// await init();
-
-
+/* --- Card-loader from API + Other details --- */
 document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
   button.addEventListener('click', async (event) => {
     event.preventDefault(); // Prevent default behavior
@@ -29,10 +20,18 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
       const cardNameContainer = document.querySelector('.card_name');
       const cardDetailsContainer = document.querySelector('.card_details');
       const cardMeaningContainer = document.querySelector('.card_meaning');
+      const floatingTextBox = document.getElementById('floating_textbox'); // Get the floating textbox
 
       if (cardNameContainer) {
         const displayedName = button.getAttribute('data-card-name');
         cardNameContainer.textContent = displayedName;
+
+        // Populate the floating textbox with the card's data
+        floatingTextBox.innerHTML = `
+          <h1 class="card_name">${displayedName}</h1>
+          <h3 class="card_details">${button.getAttribute('data-card-details')}</h3>
+          <p class="card_meaning">${button.getAttribute('data-card-meaning')}</p>
+        `;
       }
 
       if (cardDetailsContainer) {
@@ -59,10 +58,16 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
     button.classList.add('active');
 
     try {
-      // Fetch a random card from the API
-      const response = await fetch('https://tarotapi.dev/api/v1/cards/random?n=1');
-      const data = await response.json();
-      const card = data.cards[0]; // Get the first card from the response
+      let card;
+      do {
+        // Fetch a random card from the API
+        const response = await fetch('https://tarotapi.dev/api/v1/cards/random?n=1');
+        const data = await response.json();
+        card = data.cards[0]; // Get the first card from the response
+      } while (displayedCards.includes(card.name_short)); // Repeat if the card has already been displayed
+
+      // Add the card to the displayedCards array
+      displayedCards.push(card.name_short);
 
       // Randomly decide whether to show meaning_up or meaning_rev
       const showMeaningUp = Math.random() < 0.5; // 50% chance for each
@@ -74,6 +79,10 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
       button.style.backgroundSize = 'cover'; // Ensure the image fits the height of the container
       button.style.backgroundRepeat = 'no-repeat'; // Prevent the image from repeating
       button.style.backgroundPosition = 'center'; // Center the image
+
+      // Add a border to the button
+      button.style.border = '5px solid #e7e3b5'; // Adjust the border size and color as needed
+      button.style.borderRadius = '10px'; // Optional: Add rounded corners
 
       // Add the appropriate class to the clicked card
       if (!showMeaningUp) {
@@ -91,8 +100,6 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
 
       // Display the card's name in the card_name container
       const cardNameContainer = document.querySelector('.card_name');
-      const floatingTextBox = document.getElementById('floating_textbox'); // Get the floating textbox
-
       if (cardNameContainer) {
         const cardNameText = showMeaningUp ? card.name : `${card.name} (Reversed)`;
         cardNameContainer.textContent = cardNameText;
@@ -149,9 +156,6 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
           // Clear the instruction text
           instructionContainer.textContent = ' ';
 
-          // Adjust the margin of the instruction container
-          instructionContainer.style.margin = '0px auto 0px auto'; // Example: Adjust the margin as needed
-
           // Add the "Pull Again?" button
           const pullAgainButton = document.createElement('button');
           pullAgainButton.id = 'pull-again';
@@ -159,12 +163,12 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
           pullAgainButton.style.backgroundColor = '#564e8b';
           pullAgainButton.style.color = 'white';
           pullAgainButton.style.padding = '10px 20px';
-          pullAgainButton.style.border = '1px solid white'; // Adjust the border size and color as needed
+          pullAgainButton.style.border = '1px solid white';
           pullAgainButton.style.borderRadius = '5px';
           pullAgainButton.style.cursor = 'pointer';
-          pullAgainButton.style.fontSize = '18px'; // Match the font size of the instruction text
-          pullAgainButton.style.textAlign = 'center'; // Center the text
-          pullAgainButton.style.display = 'inline-block'; // Ensure it behaves like the instruction text
+          pullAgainButton.style.fontSize = '18px';
+          pullAgainButton.style.textAlign = 'center';
+          pullAgainButton.style.display = 'inline-block';
 
           // Append the button to the instruction container
           instructionContainer.appendChild(pullAgainButton);
@@ -186,6 +190,7 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
 // Array to track displayed cards
 const displayedCards = [];
 
+ /* --- Code for the Textbox --- */
 document.querySelectorAll('.loadCards').forEach((button, index) => {
   button.addEventListener('click', async (event) => {
     event.preventDefault(); // Prevent default behavior
@@ -196,6 +201,7 @@ document.querySelectorAll('.loadCards').forEach((button, index) => {
       const cardNameContainer = document.querySelector('.card_name');
       const cardDetailsContainer = document.querySelector('.card_details');
       const cardMeaningContainer = document.querySelector('.card_meaning');
+      const floatingTextBox = document.getElementById('floating_textbox'); // Get the floating textbox
 
       if (cardNameContainer) {
         const displayedName = button.getAttribute('data-card-name');
@@ -405,6 +411,11 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
 
     // Reference the parent div of the button
     const cardDiv = button.closest('.card'); // Find the nearest parent with the class 'card'
+
+    // Remove active classes from all cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.remove('card_active', 'reversed_card_active'); // Remove both active classes
+    });
 
     // Check if the card has already been clicked
     if (button.classList.contains('active')) {
