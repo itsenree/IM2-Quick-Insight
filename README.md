@@ -1,24 +1,25 @@
 # Quick Insight - IM2 Leistungsnachweis
 [Link zur Webseite](https://quickinsight.enrico-fusaro.ch/)
 
-###  Kurzbeschreibung
-Meine Webseite Quick Insight ermöglicht es, Tarotkarten zu ziehen. Tarotkarten werden genutzt um die "mögliche Zukunft zu lesen".
-Die Nutzer:innen können auswöhlen wie viele Karten sie ziehen wollen (1-3). Anschliessend kann man die gewählte Anzahl aufdecken. Jede Karte zeigt ein Bild sowie Informationen wie zum Beispiel die Bedeutung. Wird eine Karte umgedreht („reversed“) gezogen, verändert sich ihre Bedeutung.
+### Kurzbeschreibung
+Meine Webseite **Quick Insight** ermöglicht es, Tarotkarten zu ziehen. Tarotkarten werden genutzt, um die "mögliche Zukunft zu lesen".  
+Die Nutzer:innen können auswählen, wie viele Karten sie ziehen wollen (1–3). Anschließend kann man die gewählte Anzahl aufdecken.  
+Jede Karte zeigt ein Bild sowie Informationen, wie zum Beispiel die Bedeutung. Wird eine Karte umgedreht („reversed“) gezogen, verändert sich ihre Bedeutung.
 
 ### Gelerntes & Schwierigkeiten
-Ich habe gelernt, wie dass man Javascript in die eigene Webseite einbauen kann und wie man ein API einbinden kann.
-Beim Mobile layout kam ich auf Probleme, denn das Layout ist leicht anders aufgebaut.
+Ich habe gelernt, wie man JavaScript in die eigene Webseite einbauen kann und wie man eine API einbindet.  
+Beim Mobile Layout kam ich auf Probleme, da das Layout auf kleineren Bildschirmen leicht anders aufgebaut ist.
 
-### Ressourcen
-Links und prompts, welche für meine Websetie benutzt wurden:
+### Ressourcen
+Links und Prompts, die ich für meine Webseite verwendet habe:
 
-*API:*
-https://www.freepublicapis.com/tarot-card-meanings
+**API:**  
+https://www.freepublicapis.com/tarot-card-meanings  
 
-*Image Source:*
-https://www.sacred-texts.com/tarot/xr/index.htm
+**Bildquelle:**  
+https://www.sacred-texts.com/tarot/xr/index.htm  
 
-*Prompts:*
-- Wie kann ich mehrere Daten vom API holen?
-- Wie kann ich implementieren, dass eine Karte zufällig umgedreht dargestellt wird?
+**Prompts:**  
+- Wie kann ich mehrere Daten vom API holen?  
+- Wie kann ich implementieren, dass eine Karte zufällig umgedreht dargestellt wird?  
 - Wie kann ich mein Layout für mobile Geräte anpassen (responsive design)?
