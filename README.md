@@ -10,7 +10,7 @@ Jede Karte zeigt ein Bild sowie die dazu gehörigen Informationen (Name, Beschre
 
 ### Gelerntes & Schwierigkeiten
 Ich habe gelernt, wie man JavaScript in eine eigene Webseite einbauen kann und wie man eine API einbindet.  
-Beim Mobile Layout traf ich auf Probleme, weshalb ich die Mobile ansicht abändern musste.
+Beim Mobile-Layout traf ich auf Probleme, weshalb ich die Mobile ansicht anpassen musste.
 ### Ressourcen
 Links und Prompts, die ich für meine Webseite verwendet habe:
 
