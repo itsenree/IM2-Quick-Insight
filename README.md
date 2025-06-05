@@ -3,11 +3,11 @@
 
 ### Kurzbeschreibung
 Meine Webseite **Quick Insight** ermöglicht es, Tarotkarten zu ziehen. Tarotkarten werden genutzt, um die "mögliche Zukunft zu lesen".  
-Die Nutzer:innen können auswählen, wie viele Karten sie ziehen wollen (1–3). Anschließend kann man die gewählte Anzahl aufdecken.  
-Jede Karte zeigt ein Bild sowie Informationen, wie zum Beispiel die Bedeutung. Wird eine Karte umgedreht („reversed“) gezogen, verändert sich ihre Bedeutung.
+Die Nutzer:innen können auswählen, wie viele Karten sie ziehen wollen (1–3). Anschliessend kann man die gewählte Anzahl aufdecken.  
+Jede Karte zeigt ein Bild sowie die dazu gehörigen Informationen (Name, Beschreibung usw). Wird eine Karte umgedreht („reversed“) gezogen, verändert sich ihre Bedeutung.
 
 ### Gelerntes & Schwierigkeiten
-Ich habe gelernt, wie man JavaScript in die eigene Webseite einbauen kann und wie man eine API einbindet.  
+Ich habe gelernt, wie man JavaScript in eine eigene Webseite einbauen kann und wie man eine API einbindet.  
 Beim Mobile Layout kam ich auf Probleme, da das Layout auf kleineren Bildschirmen leicht anders aufgebaut ist.
 
 ### Ressourcen
