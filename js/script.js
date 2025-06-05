@@ -106,7 +106,7 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
         `;
       }
 
-      // Check if all cards are revealed
+      // Check if all cards are revealed + if so, show "Pull Again?" button
       const allRevealed = Array.from(buttons).every(btn => btn.classList.contains('active'));
       if (allRevealed) {
         const instructionContainer = document.querySelector('.instruction');
@@ -126,6 +126,20 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
           pullAgainButton.style.fontSize = '18px';
           pullAgainButton.style.textAlign = 'center';
           pullAgainButton.style.display = 'inline-block';
+          pullAgainButton.style.transition = 'background-color 0.3s ease, color 0.3s ease'; // Smooth transition for hover effect
+
+          pullAgainButton.classList.add('hover-effect');
+
+          // Add hover effect to the "Pull Again?" button
+          pullAgainButton.addEventListener('mouseover', () => {
+            pullAgainButton.style.backgroundColor = '#726cc4'; // Change background color on hover
+            pullAgainButton.style.color = '#ffffff'; // Change text color on hover
+          });
+
+          pullAgainButton.addEventListener('mouseout', () => {
+            pullAgainButton.style.backgroundColor = '#564e8b'; // Revert background color
+            pullAgainButton.style.color = 'white'; // Revert text color
+          });
 
           instructionContainer.appendChild(pullAgainButton);
           pullAgainButton.addEventListener('click', () => {
