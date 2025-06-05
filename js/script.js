@@ -129,7 +129,6 @@ function setupCardListeners() {
         const showMeaningUp = Math.random() < 0.5;
         const meaningText = showMeaningUp ? card.meaning_up : card.meaning_rev;
         const nameText = showMeaningUp ? card.name : `${card.name} (Reversed)`;
-        // const detailsText = `${card.type} | ${card.suit} | weight ${card.value_int}`;
         const detailsText = `${card.type} ${card.suit ? ' | ' + card.suit : ''} | weight ${card.value_int}`;
         const imageUrl = `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`;
 

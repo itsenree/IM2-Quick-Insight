@@ -179,6 +179,7 @@ main {
     display: flex;
     flex-direction: column; /* Stacks elements vertically */
     align-items: center; /* Centers elements horizontally */
+    gap: 1px;
 }
 
 .card_name {
@@ -371,6 +372,20 @@ main {
       word-wrap: break-word; /* Ensure long words break to fit within the container */
       margin-left: auto; /* Center the text horizontally */
       margin-right: auto;
+    }
+  
+    .floating_textbox {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center elements horizontally */
+        gap: 10px; /* Add spacing between elements */
+    }
+
+    .floating_textbox .card_name,
+    .floating_textbox .card_details {
+        display: block; /* Ensure each element takes up its own line */
+        text-align: center; /* Center the text */
+        margin: 5px 0; /* Add some spacing between elements */
     }
   
     .card_info_container {
