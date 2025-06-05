@@ -140,6 +140,8 @@ document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
   });
 });
 
+
+/* --- Textbox Stuff --- */
 // Function to handle the floating textbox for mobile screens
 function handleFloatingTextBox() {
   const existingTextBox = document.getElementById('floating_textbox');
@@ -205,6 +207,7 @@ function updateFloatingTextBox(button) {
   }
 }
 
+/* --- Card-loader for Mobile view (Textbox) --- */
 // Event listener for card clicks
 document.querySelectorAll('.loadCards').forEach((button, index, buttons) => {
   button.addEventListener('click', async (event) => {

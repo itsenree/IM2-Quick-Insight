@@ -9,6 +9,7 @@ body {
     font-family: 'Inknut Antiqua', Arial, Helvetica, sans-serif;
 }
 
+/* --- Animation for the background --- */
 html::after {
     content: "";
     display: block;
