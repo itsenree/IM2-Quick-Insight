@@ -1,5 +1,5 @@
 # Quick Insight - IM2 Leistungsnachweis
-## Von Enrico Fusaro mmp24b
+## Enrico Fusaro | mmp24b
 
 [Link zur Webseite](https://quickinsight.enrico-fusaro.ch/)
 
