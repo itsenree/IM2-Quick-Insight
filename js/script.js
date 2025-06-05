@@ -2,9 +2,11 @@
 async function init() {}
 
 /* --- Globals --- */
-const displayedCards = [];
+const displayedCards = []; // store names of already pulled cards to avoid duplicates
 
 /* --- Helper Functions --- */
+
+// update both mobile & desktop text containers with card info
 function updateTextBoxes(cardName, cardDetails, cardMeaning) {
   const floatingTextBox = document.getElementById('floating_textbox');
   const cardInfoContainer = document.querySelector('.card_info_container');
@@ -25,6 +27,7 @@ function updateTextBoxes(cardName, cardDetails, cardMeaning) {
   }
 }
 
+// apply background image + styling to card button
 function styleCardButton(button, imageUrl) {
   Object.assign(button.style, {
     backgroundImage: `url('${imageUrl}')`,
@@ -36,10 +39,13 @@ function styleCardButton(button, imageUrl) {
   });
 }
 
+// create "Pull Again?" button after all cards are drawn
 function createPullAgainButton(container) {
   const pullAgainButton = document.createElement('button');
   pullAgainButton.id = 'pull-again';
   pullAgainButton.textContent = 'Pull Again?';
+
+  // btn styles
   Object.assign(pullAgainButton.style, {
     backgroundColor: '#564e8b',
     color: 'white',
@@ -55,6 +61,7 @@ function createPullAgainButton(container) {
 
   pullAgainButton.classList.add('hover-effect');
 
+  // hover styles
   pullAgainButton.addEventListener('mouseover', () => {
     pullAgainButton.style.backgroundColor = '#726cc4';
     pullAgainButton.style.color = '#ffffff';
@@ -63,6 +70,8 @@ function createPullAgainButton(container) {
     pullAgainButton.style.backgroundColor = '#564e8b';
     pullAgainButton.style.color = 'white';
   });
+
+  // reloads page
   pullAgainButton.addEventListener('click', () => {
     window.location.href = '../index.html';
   });
@@ -70,6 +79,7 @@ function createPullAgainButton(container) {
   container.appendChild(pullAgainButton);
 }
 
+// keep drawing cards until we get one we haven’t pulled yet
 async function fetchUniqueCard() {
   let card;
   do {
@@ -81,11 +91,13 @@ async function fetchUniqueCard() {
   return card;
 }
 
+// handles switching between mobile + desktop text display
 function handleFloatingTextBox() {
   const existingTextBox = document.getElementById('floating_textbox');
   const cardInfoContainer = document.querySelector('.card_info_container');
 
   if (window.innerWidth <= 768) {
+    // mobile: add floating text box if it doesn’t exist
     if (!existingTextBox) {
       const floatingTextBox = document.createElement('div');
       floatingTextBox.id = 'floating_textbox';
@@ -93,21 +105,27 @@ function handleFloatingTextBox() {
       floatingTextBox.style.display = 'none';
       document.body.appendChild(floatingTextBox);
     }
+    // hide desktop text container on mobile
     if (cardInfoContainer) cardInfoContainer.style.display = 'none';
   } else {
+    // desktop: remove mobile floating box if exists
     if (existingTextBox) existingTextBox.remove();
+    // restore desktop text container
     if (cardInfoContainer) cardInfoContainer.style.display = '';
   }
 }
 
+// adds event listeners to card buttons
 function setupCardListeners() {
   const buttons = document.querySelectorAll('.loadCards');
 
   buttons.forEach((button) => {
     button.addEventListener('click', async (event) => {
       event.preventDefault();
+
       const cardDiv = button.closest('.card');
 
+      // reset active styles for all cards
       document.querySelectorAll('.card').forEach(card => {
         card.classList.remove('card_active', 'reversed_card_active');
       });
@@ -118,12 +136,15 @@ function setupCardListeners() {
       const meaning = button.getAttribute('data-card-meaning');
 
       if (isActive && name && details && meaning) {
+        // if card already drawn, just show its info
         updateTextBoxes(name, details, meaning);
         cardDiv.classList.add(cardDiv.classList.contains('rotated') ? 'reversed_card_active' : 'card_active');
         return;
       }
 
+      // otherwise, fetch a new card
       button.classList.add('active');
+
       try {
         const card = await fetchUniqueCard();
         const showMeaningUp = Math.random() < 0.5;
@@ -132,8 +153,9 @@ function setupCardListeners() {
         const detailsText = `${card.type} | ${card.suit ?? 'N/A'} | weight ${card.value_int}`;
         const imageUrl = `https://www.sacred-texts.com/tarot/pkt/img/${card.name_short}.jpg`;
 
-        styleCardButton(button, imageUrl);
+        styleCardButton(button, imageUrl); // set card image
 
+        // apply reversed or upright styles
         if (!showMeaningUp) {
           cardDiv.classList.add('rotated', 'reversed_card_active');
         } else {
@@ -141,12 +163,14 @@ function setupCardListeners() {
           cardDiv.classList.add('card_active');
         }
 
+        // store info for re-click access
         button.setAttribute('data-card-name', nameText);
         button.setAttribute('data-card-details', detailsText);
         button.setAttribute('data-card-meaning', meaningText);
 
         updateTextBoxes(nameText, detailsText, meaningText);
 
+        // once all buttons have cards, show "pull again?"
         if ([...buttons].every(btn => btn.classList.contains('active'))) {
           const instructionContainer = document.querySelector('.instruction');
           if (instructionContainer) {
@@ -162,10 +186,12 @@ function setupCardListeners() {
   });
 }
 
+// initial setup when page loads
 window.addEventListener('DOMContentLoaded', () => {
   handleFloatingTextBox();
   setupCardListeners();
   init();
 });
 
+// re-check layout when window is resized
 window.addEventListener('resize', handleFloatingTextBox);
