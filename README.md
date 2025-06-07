@@ -9,8 +9,8 @@ Die Nutzer:innen können auswählen, wie viele Karten sie ziehen wollen (1–3).
 Jede Karte zeigt ein Bild sowie die dazu gehörigen Informationen (Name, Beschreibung usw). Wird eine Karte umgedreht („reversed“) gezogen, verändert sich ihre Bedeutung.
 
 ### Gelerntes & Schwierigkeiten
-Ich habe gelernt, wie man JavaScript in eine eigene Webseite einbauen kann und wie man eine API einbindet.  
-Beim Mobile-Layout traf ich auf Probleme, weshalb ich die Mobile ansicht anpassen musste.
+Ich habe gelernt, wie man Javascript in eine eigene Webseite einbauen kann und wie man eine API einbindet.  
+Beim Mobile-Layout traf ich auf Probleme, weshalb ich die Mobileansicht anpassen musste.
 ### Ressourcen
 Links und Prompts, die ich für meine Webseite verwendet habe:
 
